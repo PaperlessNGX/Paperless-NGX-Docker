@@ -1,0 +1,29 @@
+from papermerge.core.features.auth.scopes import Scopes
+from papermerge.core.features.auth.dependencies import require_scopes
+from papermerge.core.schema import User
+
+ViewCustomFields: type[User] = require_scopes(Scopes.CUSTOM_FIELD_VIEW)
+CreateCustomFields: type[User] = require_scopes(Scopes.CUSTOM_FIELD_CREATE)
+DeleteCustomFields: type[User] = require_scopes(Scopes.CUSTOM_FIELD_DELETE)
+UpdateCustomFields: type[User] = require_scopes(Scopes.CUSTOM_FIELD_UPDATE)
+ViewNode: type[User] = require_scopes(Scopes.NODE_VIEW)
+UpdateNode: type[User] = require_scopes(Scopes.NODE_UPDATE)
+DownloadDocument: type[User] = require_scopes(Scopes.DOCUMENT_DOWNLOAD)
+UploadDocument: type[User] = require_scopes(Scopes.DOCUMENT_UPLOAD, Scopes.NODE_CREATE)
+ViewAPIToken: type[User] = require_scopes(Scopes.API_TOKEN_VIEW)
+CreateAPIToken: type[User] = require_scopes(Scopes.API_TOKEN_CREATE)
+DeleteAPIToken: type[User] = require_scopes(Scopes.API_TOKEN_DELETE)
+
+__all__ = [
+    "ViewCustomFields",
+    "CreateCustomFields",
+    "DeleteCustomFields",
+    "UpdateCustomFields",
+    "ViewNode",
+    "UpdateNode",
+    "DownloadDocument",
+    "UploadDocument",
+    "ViewAPIToken",
+    "CreateAPIToken",
+    "DeleteAPIToken",
+]
